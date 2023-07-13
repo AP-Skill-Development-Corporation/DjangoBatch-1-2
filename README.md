@@ -8,4 +8,4 @@
 # Day-32(12-07-2023):
   - User Authentication withh sample example on it
   - Role based accessing of modules
-  - Recorded Video Link [Click Here]()
+  - Recorded Video Link [Click Here](https://drive.google.com/file/d/1avU-Oe7sPqrCQsDmFclU-DuS_0pbuMRk/view?usp=sharing)
