@@ -9,3 +9,9 @@
   - User Authentication with sample example on it
   - Role based accessing of modules
   - Recorded Video Link [Click Here](https://drive.google.com/file/d/1avU-Oe7sPqrCQsDmFclU-DuS_0pbuMRk/view?usp=sharing)
+# Day-33(15-07-2023):
+  - Started Job Portal Mini Project
+  - Completed Designing for Home,About,Contact,Register,Login and Logout using Bootstrap-4 components
+  - Created User table while using AbstractUser Model
+  - Completed User Authentication and Authorization
+  - Recorded Video Link [Click Here]()
