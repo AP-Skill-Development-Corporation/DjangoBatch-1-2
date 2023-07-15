@@ -1,0 +1,62 @@
+Day-33[15-07-2023]:
+==================
+	Good Morning All...
+
+	Previous Concepts:
+	==================
+		- Completed Django Concepts Except [files or images,Relationships]
+	
+	Todays Concept:
+	===============
+		- Mini Project [Job Portal]
+		- App
+			- static
+			- templates
+
+		Project Creation:
+		=================
+			- cmd
+			- django-admin startproject "projectname"
+				- django-admin startproject JobPortal
+
+		User App Creation:
+		==================
+			- manage.py => cmd
+			- django-admin startapp "appname"
+				- django-admin startapp JobApp
+
+		Configurations:
+		===============
+			- Static
+				=> css,js,jquery,images,audio,videos
+				=> settings.py
+					=> STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+			- Template
+				=> .html files
+				=> settings.py
+					=> TEMPLATES
+					=> 'DIRS': [os.path.join(BASE_DIR,'templates')],
+
+			- App Configuration
+				=> settings.py
+					=> INSTALLED_APPS = ['appname',]
+
+		URL configuration:
+		==================
+			- Admin App
+				=> import include
+				=> include('appname.urls')
+			- User App
+				=> urls.py
+				=> import path
+				=> urlpatterns => []
+
+		User
+		====
+		AbstractUser => existing 
+					 => role_type => Recruiter,Applicant
+					 => has_resume,has_company
+
+		Completed Authentication and Authorization to a site
+					 
+
