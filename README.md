@@ -15,3 +15,8 @@
   - Created User table while using AbstractUser Model
   - Completed User Authentication and Authorization
   - Recorded Video Link [Click Here]()
+# Day-34(16-07-2023):
+  - Completed Model Creation for Resume,Company,Job
+  - Completed Creation of forms for Resume,Company and Job Models
+  - Completed displaying List of jobs for Recruiter and Applicant roles
+  - Recorded Video Link [Click Here]()
