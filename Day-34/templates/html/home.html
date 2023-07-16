@@ -1,0 +1,62 @@
+{% extends 'html/base.html' %}
+{% block title %}Home{% endblock %}
+{% load humanize %}
+{% block content %}
+<div class="container mt-4">
+  <div class="jumbotron">
+    <h3>Welcome to Home Page</h3>
+  </div>
+</div>
+{% if request.user.role_type == '2' and request.user.has_company == 1 %}
+<div class="container-fluid mt-2">
+  <div class="row mx-2">
+    {% for i in rj %}
+    <div class="col-md-3">
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <h5>{{i.jtitle}}</h5>
+          <h6>{{i.jreq}}</h6>
+          <h6>Location: {{i.jlocation}}</h6>
+          <h6>Experience: {{i.jexpr}}<sup>+</sup>years</h6>
+        </div>
+        <div class="card-footer">
+          <p class="text-muted">{{i.jcrtm|naturaltime}}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% elif request.user.role_type == '1' %}
+<div class="container-fluid mt-2">
+  <div class="row mx-2">
+    {% for i in uj %}
+    <div class="col-md-3 my-2">
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <h5>{{i.0}}</h5>
+          <h6>{{i.1}}</h6>
+          <h6>Location: {{i.2}}</h6>
+          <h6>Experience: {{i.5}}<sup>+</sup>years</h6>
+          <h6>Salary: {{i.3}}</h6>
+          <h6>Company: {{i.6}}</h6>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col">
+              <p class="text-muted">{{i.4|naturaltime}}</p>
+            </div>
+            <div class="col">
+              <a href="" class="btn btn-success form-control">Apply</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% else %}
+{% endif %}
+{% endblock %}
+

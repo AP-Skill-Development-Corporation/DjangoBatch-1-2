@@ -1,0 +1,25 @@
+{% extends 'html/base.html' %}
+{% block title %}Creat Company{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	<div class="card col-md-4 mx-auto shadow-lg">
+		<div class="card-body">
+			<h4>Create Company</h4>
+			<form method="post">
+				{% csrf_token %}
+				{% for i in b %}
+					{{i}}
+				{% endfor %}
+				<div class="row">
+					<div class="col">
+						<input type="reset" value="Clear" class="form-control btn btn-danger">
+					</div>
+					<div class="col">
+						<input type="submit" value="Create" class="form-control btn btn-success">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

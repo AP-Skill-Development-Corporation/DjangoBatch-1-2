@@ -1,0 +1,65 @@
+{% extends 'html/base.html' %}
+{% block title %}Job List{% endblock %}
+{% block content %}
+<div class="container-fluid mt-4">
+	<div class="row mx-2">
+		<div class="card col-md-3 shadow-lg mx-2 h-100">
+			<div class="card-body">
+				<h4>Create Job</h4>
+				<form method="post">
+					{% csrf_token %}
+					{% for i in w %}
+						{{i}}
+					{% endfor %}
+					<div class="row">
+						<div class="col">
+							<input type="reset" value="Clear" class="form-control btn btn-danger">
+						</div>
+						<div class="col">
+							<input type="submit" value="Create" class="form-control btn btn-success">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="card col-md shadow-lg h-100">
+			<div class="card-body">
+				<h4>List of Jobs</h4>
+				<table class="table">
+					<tr>
+						<th>Title</th>
+						<th>Location</th>
+						<th>Salary</th>
+						<th>Availability</th>
+						<th>Actions</th>
+					</tr>
+					{% for j in s %}
+					<tr>
+						<td>{{j.jtitle}}</td>
+						<td>{{j.jlocation}}</td>
+						<td>{{j.jsal}}</td>
+						<td>
+							{% if j.is_avail == 1 %}
+							<p class="badge badge-success">Active</p>
+							{% else %}
+							<p class="badge badge-danger">InActive</p>
+							{% endif %}
+						</td>
+						<td>
+							<div class="row">
+								<div class="col">
+									<a href="" class="btn btn-warning form-control">Edit</a>
+								</div>
+								<div class="col">
+									<a href="" class="btn btn-danger form-control">Delete</a>
+								</div>
+							</div>
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

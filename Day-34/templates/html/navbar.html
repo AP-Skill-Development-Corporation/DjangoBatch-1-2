@@ -1,0 +1,73 @@
+{% load static %}
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="{% url 'hm' %}">
+    <img src="{% static 'images/logo.png' %}" class="rounded-circle" style="width:30px">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      {% if not user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'hm' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/abt/' %}active{% endif %}" href="{% url 'ab' %}">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/cnt/' %}active{% endif %}" href="{% url 'ct' %}">Contactus</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/reg/' %}active{% endif %}" href="{% url 'rg' %}">Register</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'hm' %}">Home</a>
+      </li>
+      {% if request.user.role_type == '1' %}
+      {% if request.user.has_resume == 1 %}
+      <li class="nav-item">
+        <a class="nav-link" href="">Applied Jobs</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/resm/' %}active{% endif %}" href="{% url 'rscr' %}">Resume</a>
+      </li>
+      {% endif %}
+      {% elif request.user.role_type == '2' %}
+      {% if request.user.has_company == 1 %}
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/jblst/' %}active{% endif %}" href="{% url 'jbct' %}">Job</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/cmpcrt/' %}active{% endif %}" href="{% url 'cmpcr' %}">Company</a>
+      </li>
+      {% endif %}
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="">Access Denied</a>
+      </li>
+      {% endif %}
+      {% endif %}    
+    </ul>
+    <ul class="navbar-nav ml-auto" style="margin-right:120px">
+      {% if user.is_authenticated %}
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown">Welcome {{request.user.username}}
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="#">Change Password</a>
+          <a class="dropdown-item {% if request.path == '/lgt/' %}active{% endif %}" href="{% url 'lgtn' %}">Logout</a>
+        </div>
+      </div>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/lgo/' %}active{% endif %}" href="{% url 'lg' %}">Login</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>  
+</nav>

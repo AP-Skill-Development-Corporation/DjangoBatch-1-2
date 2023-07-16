@@ -1,0 +1,28 @@
+{% extends 'html/base.html' %}
+{% block title %}Resume{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	<div class="card col-md-4 shadow-lg mx-auto">
+		<div class="card-body">
+			<h4>Resume</h4>
+			<form method="post">
+				{% csrf_token %}
+				{% for i in q %}
+					{{i}}
+				{% endfor %}
+				{% for j in r %}
+					{{j}}
+				{% endfor %}
+				<div class="row">
+					<div class="col">
+						<input type="reset" value="Clear" class="form-control btn btn-danger">
+					</div>
+					<div class="col">
+						<input type="submit" value="Create" class="form-control btn btn-success">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
